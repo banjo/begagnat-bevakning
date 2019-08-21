@@ -23,7 +23,7 @@ def add_id_to_blocket(id):
 
 def check_id_for_blocket(item_id):
     cursor = db.cursor()
-    sql = "SELECT id FROM tradera WHERE id = %s"
+    sql = "SELECT id FROM blocket WHERE id = %s"
     val = (item_id, )
     cursor.execute(sql, val)
     result = cursor.fetchone()
@@ -44,7 +44,7 @@ def add_id_to_tradera(id):
 
 def check_id_for_tradera(item_id):
     cursor = db.cursor()
-    sql = "SELECT id FROM blocket WHERE id = %s"
+    sql = "SELECT id FROM tradera WHERE id = %s"
     val = (item_id, )
     cursor.execute(sql, val)
     result = cursor.fetchone()
