@@ -14,7 +14,7 @@ db = mysql.connector.connect(host=SQL_HOST,
 
 
 def add_id_to_blocket(id):
-    cursor = db.cursor()
+    cursor = db.cursor(buffered=True)
     sql = "INSERT INTO blocket (id, has_viewed) VALUES (%s, %s)"
     val = (id, 1)
     cursor.execute(sql, val)
@@ -22,7 +22,7 @@ def add_id_to_blocket(id):
 
 
 def check_id_for_blocket(item_id):
-    cursor = db.cursor()
+    cursor = db.cursor(buffered=True)
     sql = "SELECT id FROM blocket WHERE id = %s"
     val = (item_id, )
     cursor.execute(sql, val)
@@ -35,7 +35,7 @@ def check_id_for_blocket(item_id):
 
 
 def add_id_to_tradera(id):
-    cursor = db.cursor()
+    cursor = db.cursor(buffered=True)
     sql = "INSERT INTO tradera (id, has_viewed) VALUES (%s, %s)"
     val = (id, 1)
     cursor.execute(sql, val)
@@ -43,7 +43,7 @@ def add_id_to_tradera(id):
 
 
 def check_id_for_tradera(item_id):
-    cursor = db.cursor()
+    cursor = db.cursor(buffered=True)
     sql = "SELECT id FROM tradera WHERE id = %s"
     val = (item_id, )
     cursor.execute(sql, val)

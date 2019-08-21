@@ -37,6 +37,14 @@ def tradera(q):
     json_data = json.loads(data)
     items = json_data["discoverResponse"]["items"]
 
+    items_list = scrape_json_data(items)
+    items_list = remove_bad_listings(items_list)
+
+    # add to database and blocket
+    send_info(items_list)
+
+
+def scrape_json_data(items):
     # save important info to list
     items_list = []
     for item in items:
@@ -73,6 +81,10 @@ def tradera(q):
             "remove": False
         })
 
+    return items_list
+
+
+def remove_bad_listings(items_list):
     # remove bad listings
     for item in items_list:
         list_id = item["item_id"]
@@ -98,6 +110,10 @@ def tradera(q):
         if item["remove"]:
             items_list.remove(item)
 
+    return items_list
+
+
+def send_info(items_list):
     # add to database and blocket
     for item in items_list:
 
