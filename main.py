@@ -6,18 +6,15 @@ def main(request):
 
     if request.args.get("q"):
         q = request.args.get("q")
+    elif request.args.get("q") == "":
+        return ("Specify query")
     else:
-        q = ""
+        return ("Specify query")
 
-    if request.args.get("al"):
-        al = True
+    if request.args.get("lan") not in [1, 2, 3] or not request.args.get("lan"):
+        lan = 3
     else:
-        al = False
+        lan = request.args.get("lan")
 
-    if request.args.get("thn"):
-        thn = True
-    else:
-        thn = False
-
-    blocket(q, al, thn)
+    blocket(q, lan)
     tradera(q)

@@ -57,20 +57,15 @@ def get_article_data(article):
     return article_dict
 
 
-def create_params(q, angransade_lan=False, trollhattan=False):
+def create_params(q, lan):
 
     # create a dictionary of parameters depending on the search variables
-    if angransade_lan:
-        return {"q": q, "w": 2, "f": "p"}
-    elif trollhattan:
-        return {"q": q, "w": 1, "f": "p", "m": 208}
-    else:
-        return {"q": q, "w": 1, "f": "p"}
+    return {"q": q, "w": lan, "f": "p"}
 
 
-def blocket(q, al=False, thn=False):
+def blocket(q, lan=3):
     # create parameters for request
-    params = create_params(q, al, thn)
+    params = create_params(q, lan)
 
     # make request and save as content
     response = requests.get('https://www.blocket.se/alvsborg',
@@ -87,8 +82,8 @@ def blocket(q, al=False, thn=False):
     for article in articles_soup:
         # save only relevant listings
         if len(article) != 5:
-
             continue
+
         # get all data
         try:
             article_dict = get_article_data(article)
