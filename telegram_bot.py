@@ -2,11 +2,12 @@ import os
 from telegram.ext import Updater
 
 TELEGRAM_API = os.environ.get("TELEGRAM_KEY")
+CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
 
 # setup telegram variables
 updater = Updater(TELEGRAM_API)
 bot = updater.bot
-chat_id = bot.get_updates()[-1].message.chat_id
+# chat_id = bot.get_updates()[-1].message.chat_id
 
 
 def send_blocket_to_telegram(article):
@@ -21,10 +22,10 @@ Blocket
 
     # send image if it exits
     if article["img"]:
-        bot.send_photo(chat_id=chat_id, photo=article["img"])
+        bot.send_photo(chat_id=CHAT_ID, photo=article["img"])
 
     # send string
-    bot.send_message(chat_id=chat_id,
+    bot.send_message(chat_id=CHAT_ID,
                      text=string,
                      disable_web_page_preview=True)
 
@@ -43,9 +44,9 @@ Url:   {item["url"]}
 
     # send image if it exits
     if item["img"]:
-        bot.send_photo(chat_id=chat_id, photo=item["img"])
+        bot.send_photo(chat_id=CHAT_ID, photo=item["img"])
 
     # send string
-    bot.send_message(chat_id=chat_id,
+    bot.send_message(chat_id=CHAT_ID,
                      text=string,
                      disable_web_page_preview=True)
