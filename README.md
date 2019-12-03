@@ -36,9 +36,9 @@
 
 <!-- TABLE OF CONTENTS -->
 
-## Innehållsförtäckning
+## Innehållsförteckning
 
-- [Innehållsförtäckning](#innehållsförtäckning)
+- [Innehållsförteckning](#innehållsförteckning)
 - [Om projektet](#om-projektet)
   - [Byggt med](#byggt-med)
 - [Startguide](#startguide)
