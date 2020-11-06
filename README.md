@@ -96,6 +96,8 @@ Programmet använder sig av en Remote SQL-databas. Denna bör innehålla följan
     -   Text som heter `id`
     -   Boolean som heter `has_viewed`
 
+Det finns ett SQL-script (`init_database.sql`) som kan köras för att göra det automatiskt.
+
 En databas kan skapas gratis på [följande hemsida](https://www.freesqldatabase.com/).
 
 #### Telegram
